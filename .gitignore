@@ -1,5 +1,4 @@
-﻿target/
-test-classes/
+﻿test-classes/
 classes/
 lib/
 .settings/
@@ -8,3 +7,5 @@ lib/
 .mymetadata
 .myumldata
 .project
+
+/target
