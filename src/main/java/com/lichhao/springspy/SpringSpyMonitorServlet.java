@@ -84,7 +84,9 @@ public class SpringSpyMonitorServlet extends HttpServlet {
 		// 刷新Spring容器
 		if (pathInfo.equals("/refresh")) {
 			
-			
+			/*
+			 * 下面的代码演示和说明了classpath开头的引用资源会因为缓存而无法反映xml文件的最新修改
+			 * 
 			InputStream resourceAsStream = sc.getResourceAsStream("/WEB-INF/classes/dataSource.xml");
 			BufferedReader buf = new BufferedReader(new InputStreamReader(resourceAsStream, "UTF-8"));
 			StringBuilder builder = new StringBuilder();
@@ -112,11 +114,9 @@ public class SpringSpyMonitorServlet extends HttpServlet {
 				builder.append(line).append("\n");
 			}
 			System.out.println(builder.toString());
-			
+			*/
 			
 			webContext.refresh();
-//			webContext = (XmlWebApplicationContext) sc
-//			.getAttribute(ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 			beanFactory = webContext.getBeanFactory();
 
 			int beanDefinitionCount = beanFactory.getBeanDefinitionCount();
